@@ -16,10 +16,15 @@ namespace finalProject.Controllers
         {
             _auc = auc;
         }
+
+
+        // get
         public IActionResult Index()
         {
             return View();
         }
+
+        //post
         public IActionResult Create()
         {
             return View();

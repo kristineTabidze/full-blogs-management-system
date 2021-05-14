@@ -1,71 +1,562 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+﻿body {
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: system-ui;
+    overflow-x: hidden;
 }
 
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
+    body::-webkit-scrollbar {
+        width: 1em;
+    }
+
+    body::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background-color: #9f98ff;
+        border-radius: 8px;
+    }
+
+.navbarLink {
+    color: white;
+    text-decoration: none;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+.navbarItem > a:hover {
+    color: #7268ff;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+.navbarItem > a {
+    margin: 0px 10px;
+    border: 1px solid white;
+    padding: 4px 15px;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: 0.6s;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  font-size: 14px;
+.navbar {
+    padding-left: 0px;
 }
-@media (min-width: 768px) {
-  html {
+
+header {
+    z-index: 10000000000;
+}
+
+.navbarButtonItem {
+    margin: 0px 10px;
+    border: 1px solid white;
+    padding: 4px 15px;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: 0.6s;
+    background-color: #7268ff;
+    cursor: pointer;
+    color: white;
+}
+
+    .navbarButtonItem.active {
+        color: #7268ff;
+        background-color: white;
+    }
+
+    .navbarButtonItem:hover {
+        color: #7268ff;
+        background-color: white;
+    }
+
+blockquote {
+    color: #7268ff;
+    font-size: 27px;
+}
+
+.navbarItem > a:hover {
+    color: #7268ff;
+    background-color: white;
+    transition: 0.6s;
+}
+
+.navbarContainer > .active > a {
+    color: #7268ff;
+    background-color: white;
+}
+
+.mainContainer {
+    width: 100vw;
+}
+
+.navbarContainer {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    max-width: 100vw;
+    height: 51px;
+    width: 100%;
+    background: #7268ff;
+    top: 0;
+    z-index: 100;
+    list-style: none;
+}
+
+main {
+    text-align: center;
+    padding: 0px;
+    width: 90vw;
+    overflow-x: hidden;
+    margin: 0 auto;
+    margin-top: 80px;
+    margin-bottom: 120px;
+    min-height: calc(100vh - 245px);
+}
+
+.contentContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+    .contentContainer > span {
+        width: 35%;
+        font-size: 32px;
+    }
+
+.worldAndGeorgiaContainer {
+    display: flex;
+    margin: 0px auto;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.headerInnerButtons {
+    width: 1227px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 90vw;
+}
+
+@media screen and (max-width: 1440px) {
+    .worldAndGeorgiaContainer {
+        margin: 0px auto;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: flex-start;
+        width: 90vw;
+    }
+}
+
+.world {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin: 0px 40px;
+}
+
+.tab,
+.tabCountry {
+    cursor: pointer;
+    background-color: #7268ff;
+    color: white;
+    font-size: 13px;
+    padding: 5px 20px;
+}
+
+.answers {
+    width: 100%;
+    font-weight: lighter;
+    margin: 10px 0;
+    color: #686767;
     font-size: 16px;
-  }
+    text-size-adjust: none;
 }
 
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+.tabCountry {
+    z-index: 1;
+    left: 0;
+    position: sticky;
 }
 
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+.generalInfo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    margin-top: 100px;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
+.emptyDiv {
+    height: 20px;
+    width: 20px;
 }
 
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+.mainTitle {
+    color: #4d4d4d;
+    font-size: 18px;
+    font-weight: bold;
 }
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+
+.worldTitle {
+    color: rgb(206, 205, 205);
+    font-size: 42px;
+}
+
+.numberOfDeaths,
+.numberOfCases,
+.numberOfRecovery,
+.numberOfActive,
+.numberOfQuarantine {
+    font-size: 35px;
+    margin: 7px 0px 8px 0px;
+}
+
+.numberOfQuarantine {
+    color: #e88f3f;
+}
+
+.numberOfActive {
+    color: #f95555;
+}
+
+@media screen and (max-width: 1440px) {
+    .numberOfDeaths,
+    .numberOfCases,
+    .numberOfRecovery,
+    .numberOfActive,
+    .numberOfQuarantine {
+        margin: 0px 0px 0px 10px;
+    }
+}
+
+.infoWithNumber {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 10px;
+    flex-direction: column;
+    font-size: 18px;
+}
+
+@media screen and (max-width: 1440px) {
+    .infoWithNumber {
+        flex-direction: row;
+    }
+}
+
+.georgiaTitle {
+    font-size: 42px;
+    color: #7268ff;
+    text-align: center;
+    width: 350px;
+}
+
+.georgiaGeneralInfoContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 1440px) {
+    .georgiaGeneralInfoContainer {
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+}
+
+.titleAndIfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 20px auto;
+}
+
+.numberOfCases {
+    color: rgb(191, 191, 191);
+}
+
+.numberOfRecovery {
+    color: rgb(108, 216, 112);
+}
+
+.numberOfDeaths {
+    color: rgb(128, 128, 128);
+}
+
+.table {
+    border-spacing: 0px;
+    border-color: rgb(255, 255, 255);
+    border-radius: 4px;
+}
+
+.columns,
+.newCasesColumns,
+.newDeathsColumns {
+    color: #4d4d4d;
+    font-size: 16px;
+    padding: 8px;
+    font-weight: bold;
+}
+
+.newCasesColumns {
+    background-color: #fea;
+}
+
+.newDeathsColumns {
+    background-color: #f95555;
+    color: white;
+}
+
+.countryColumns,
+.countryColumnsGeorgia {
+    position: sticky;
+    z-index: 1;
+    left: 0;
+    background-color: white;
+    padding-left: 10px;
+}
+
+.countryColumnsGeorgia {
+    color: #7268ff;
+    font-weight: bold;
+}
+
+.tableContainer {
+    max-width: calc(90vw);
+    overflow: auto;
+    margin: 20px auto;
+}
+
+.questionsContainer {
+    max-width: 80%;
+    margin: 100px auto 150px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 1721px;
+}
+
+.eQuestion {
+    cursor: pointer;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid lightgrey;
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.qWithAnswer {
+    width: 100%;
+}
+
+.title {
+    font-size: 20px;
+    color: #181717;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.firstQuestions {
+    font-size: 16px;
+    color: #181717;
+    font-weight: bold;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: column;
+}
+
+.firstAnswer {
+    width: 550px;
+    font-size: 16px;
+    color: #181717;
+    margin-left: -64px;
+}
+
+footer {
+    background: #7268ff;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+label {
+    display: inline-block;
+    width: 154px;
+    text-align: right;
+    margin-right: 8px;
+}
+
+input {
+    height: 30px;
+    width: 244px;
+    border-radius: 11px;
+    outline: none;
+    border: 1px solid #b2b2b2;
+    padding: 3px 15px;
+    margin: 16px 0;
+}
+
+select {
+    width: 150px;
+    outline: none;
+    padding: 12px 22px;
+    border: none;
+    border-bottom: 1px solid grey;
+    margin: 35px 0;
+    cursor: pointer;
+}
+
+option {
+    padding: 15px 0;
+}
+
+.agreementLabel {
+    width: max-content;
+}
+
+.inputButton {
+    cursor: pointer;
+    width: 110px;
+    transition: 0.6s;
+    margin: 20px 15px;
+}
+
+    .inputButton.submitButton {
+        border: 1px solid #7268ff;
+        color: #7268ff;
+        background-color: white;
+    }
+
+        .inputButton.submitButton:hover {
+            background-color: #7268ff;
+            color: white;
+        }
+
+    .inputButton:hover {
+        transition: 0.6s;
+        box-shadow: 9px 5px 24px 6px #0000001f;
+    }
+
+.inputCheckbox {
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.sign-title {
+    letter-spacing: 4px;
+    color: #7268ff;
+}
+
+    .sign-title::first-letter {
+        font-size: 60px;
+    }
+
+.blog {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px dashed #7c7b89;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+    .blog > img {
+        width: 200px;
+    }
+
+    .blog > h2 {
+        color: #7268ff;
+    }
+
+.blogs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 60px;
+}
+
+@media screen and (max-width: 1100px) {
+    .blogs {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .blogs {
+        grid-template-columns: 1fr;
+    }
+
+    .navbarItem > a {
+        padding: 4px 4px;
+        border: none;
+        font-size: 12px;
+        margin: 0;
+    }
+
+    .navbarContainer {
+        justify-content: space-around;
+    }
+
+    label {
+        width: 257px;
+        text-align: left;
+        margin-right: 0px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .news-img {
+        width: 240px;
+    }
+
+    .contentContainer > span {
+        font-size: 20px;
+        width: max-content;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .news-img {
+        width: 130px;
+    }
+
+    .contentContainer > span {
+        font-size: 15px;
+        width: max-content;
+    }
+
+    footer {
+        font-size: 12px;
+    }
+}
+
+.list {
+    margin: 0 auto;
+    width: max-content;
+}
+
+
+@media screen and (min-width: 1200px) {
+    .container {
+        max-width: 100vw;
+    }
 }

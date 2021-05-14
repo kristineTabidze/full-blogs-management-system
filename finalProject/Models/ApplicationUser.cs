@@ -14,5 +14,7 @@ namespace finalProject.Models
         }
         public DbSet<User> UserRegistration { get; set; }
         public DbSet<Blog> Blog { get; set; }
+       
+
     }
 }
