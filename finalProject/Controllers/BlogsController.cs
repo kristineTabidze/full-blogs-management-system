@@ -12,9 +12,9 @@ namespace finalProject.Controllers
 {
     public class BlogsController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationUser _context;
 
-        public BlogsController(ApplicationDbContext context)
+        public BlogsController(ApplicationUser context)
         {
             _context = context;
         }
