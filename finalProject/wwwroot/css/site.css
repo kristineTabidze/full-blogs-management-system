@@ -521,6 +521,7 @@ option {
 @media screen and (max-width: 650px) {
     .blogs {
         grid-template-columns: 1fr;
+        padding: 0 13px;
     }
 
     .navbarItem > a {
@@ -611,8 +612,7 @@ option {
 }
 
 .blogDetail > img{
-   max-width: 600px;
-   max-height: 600px;
+   max-width: 60%;
 }
 
     .blogDetail > h6 {

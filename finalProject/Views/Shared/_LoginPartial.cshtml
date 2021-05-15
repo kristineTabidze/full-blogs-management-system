@@ -16,10 +16,10 @@
 }
 else
 {
-    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Register" &&   ViewContext.RouteData.Values["Controller"].ToString() == "Account" ? "navbarItem active" : "navbarItem")">
+    <li class="navbarItem">
         <a  asp-area="Identity" asp-page="/Account/Register">Register</a>
     </li>
-    <li  class="@(ViewContext.RouteData.Values["Action"].ToString() == "Login" &&   ViewContext.RouteData.Values["Controller"].ToString() == "Account" ? "navbarItem active" : "navbarItem")">
+    <li  class="navbarItem">
         <a  asp-area="Identity" asp-page="/Account/Login">Login</a>
     </li>
 }

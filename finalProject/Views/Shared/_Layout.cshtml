@@ -24,10 +24,10 @@
                 <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" &&  ViewContext.RouteData.Values["Controller"].ToString() == "Blogs" ? "navbarItem active" : "navbarItem")">
                     <a class="navbarLink" asp-area="" asp-controller="Blogs" asp-action="Index">Blogs</a>
                 </li>
-                <li class="navbarItem">
-                    <a  class="@(ViewContext.RouteData.Values["Action"].ToString() == "ShowSearchForm" &&  ViewContext.RouteData.Values["Controller"].ToString() == "Blogs" ? "navbarItem active" : "navbarItem")" asp-area="" asp-controller="Blogs" asp-action="ShowSearchForm">Search...</a>
+                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "ShowSearchForm" &&  ViewContext.RouteData.Values["Controller"].ToString() == "Blogs" ? "navbarItem active" : "navbarItem")">
+                    <a  class="navbarLink" asp-area="" asp-controller="Blogs" asp-action="ShowSearchForm">Search...</a>
                 </li>
-                <partial name="_LoginPartial" />
+              
             </ul>
 
 
