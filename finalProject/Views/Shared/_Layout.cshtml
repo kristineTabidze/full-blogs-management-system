@@ -20,15 +20,14 @@
                 <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" &&   ViewContext.RouteData.Values["Controller"].ToString() == "Home" ? "navbarItem active" : "navbarItem")">
                     <a class="navbarLink" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                 </li>
-                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Create" ? "navbarItem active" : "navbarItem")">
-                    <a class="navbarLink" asp-area="" asp-controller="Registration" asp-action="Create">Sign Up</a>
-                </li>
+               
                 <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" &&  ViewContext.RouteData.Values["Controller"].ToString() == "Blogs" ? "navbarItem active" : "navbarItem")">
                     <a class="navbarLink" asp-area="" asp-controller="Blogs" asp-action="Index">Blogs</a>
                 </li>
                 <li class="navbarItem">
-                    <a class="navbarLinkk" asp-area="" asp-controller="Blogs" asp-action="ShowSearchForm">Search...</a>
+                    <a  class="@(ViewContext.RouteData.Values["Action"].ToString() == "ShowSearchForm" &&  ViewContext.RouteData.Values["Controller"].ToString() == "Blogs" ? "navbarItem active" : "navbarItem")" asp-area="" asp-controller="Blogs" asp-action="ShowSearchForm">Search...</a>
                 </li>
+                <partial name="_LoginPartial" />
             </ul>
 
 
@@ -50,6 +49,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+   
     <script>
         $(document).ready(function () {
             $("ul.navbarContainer > li").click(function (e) {

@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using finalProject.Data;
 using finalProject.Models;
 
 namespace finalProject.Controllers
@@ -22,7 +21,7 @@ namespace finalProject.Controllers
         // GET: Blogs
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Blog.ToListAsync());
+            return View(await _context.FullBlogs.ToListAsync());
         }
 
         // GET: Blogs/Details/5
@@ -33,14 +32,14 @@ namespace finalProject.Controllers
                 return NotFound();
             }
 
-            var blog = await _context.Blog
+            var fullBlogs = await _context.FullBlogs
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (blog == null)
+            if (fullBlogs == null)
             {
                 return NotFound();
             }
 
-            return View(blog);
+            return View(fullBlogs);
         }
 
         // GET: Blogs/Create
@@ -54,15 +53,15 @@ namespace finalProject.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,title,shortDescription")] Blog blog)
+        public async Task<IActionResult> Create([Bind("Id,title,image,shortDescription,author")] FullBlogs fullBlogs)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(blog);
+                _context.Add(fullBlogs);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(blog);
+            return View(fullBlogs);
         }
 
         // GET: Blogs/Edit/5
@@ -73,12 +72,12 @@ namespace finalProject.Controllers
                 return NotFound();
             }
 
-            var blog = await _context.Blog.FindAsync(id);
-            if (blog == null)
+            var fullBlogs = await _context.FullBlogs.FindAsync(id);
+            if (fullBlogs == null)
             {
                 return NotFound();
             }
-            return View(blog);
+            return View(fullBlogs);
         }
 
         // POST: Blogs/Edit/5
@@ -86,9 +85,9 @@ namespace finalProject.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,title,shortDescription")] Blog blog)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,title,image,shortDescription,author")] FullBlogs fullBlogs)
         {
-            if (id != blog.Id)
+            if (id != fullBlogs.Id)
             {
                 return NotFound();
             }
@@ -97,12 +96,12 @@ namespace finalProject.Controllers
             {
                 try
                 {
-                    _context.Update(blog);
+                    _context.Update(fullBlogs);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!BlogExists(blog.Id))
+                    if (!FullBlogsExists(fullBlogs.Id))
                     {
                         return NotFound();
                     }
@@ -113,7 +112,7 @@ namespace finalProject.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(blog);
+            return View(fullBlogs);
         }
 
         // GET: Blogs/Delete/5
@@ -124,14 +123,14 @@ namespace finalProject.Controllers
                 return NotFound();
             }
 
-            var blog = await _context.Blog
+            var fullBlogs = await _context.FullBlogs
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (blog == null)
+            if (fullBlogs == null)
             {
                 return NotFound();
             }
 
-            return View(blog);
+            return View(fullBlogs);
         }
 
         // POST: Blogs/Delete/5
@@ -139,15 +138,15 @@ namespace finalProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var blog = await _context.Blog.FindAsync(id);
-            _context.Blog.Remove(blog);
+            var fullBlogs = await _context.FullBlogs.FindAsync(id);
+            _context.FullBlogs.Remove(fullBlogs);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool BlogExists(int id)
+        private bool FullBlogsExists(int id)
         {
-            return _context.Blog.Any(e => e.Id == id);
+            return _context.FullBlogs.Any(e => e.Id == id);
         }
 
         // GET: Blogs/ShowSearchForm
@@ -159,7 +158,7 @@ namespace finalProject.Controllers
         // POST: Blogs/ShowSearchResults
         public async Task<IActionResult> ShowSearchResults(string searchText)
         {
-            return View("Index", await _context.Blog.Where(blog => blog.title.Contains(searchText)).ToListAsync());
+            return View("Index", await _context.FullBlogs.Where(blog => blog.title.Contains(searchText)).ToListAsync());
         }
     }
 }
